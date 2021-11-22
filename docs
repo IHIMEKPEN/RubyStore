@@ -1,0 +1,8 @@
+to start a django project ----django-admin startproject project_name
+then--cd admin
+then--python manage.py runserver (run server)
+then--python manage.py startapp nameofapp (create an app)
+then--python manage.py makemigrations(initialize database)
+then--python manage.py migrate (initialize database)
+then--python manage.py createsuperuser
+

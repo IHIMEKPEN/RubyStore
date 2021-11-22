@@ -1,0 +1,120 @@
+{% extends 'ruby/layout.html' %} {% load static %} {%block title%} Sign-up
+{%endblock%} {%block body%}
+
+<!--== Page Title Area Start ==-->
+<div id="page-title-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <div class="page-title-content">
+          <h1>Member Area</h1>
+          <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login-register.html" class="active">Sign-up</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--== Page Title Area End ==-->
+{{message}}
+<!--== Page Content Wrapper Start ==-->
+<div id="page-content-wrapper" class="p-9">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 m-auto">
+        <!-- Login & Register Content Start -->
+        <div class="login-register-wrapper">
+          <!-- Login & Register tab Menu -->
+          <nav class="nav login-reg-tab-menu">
+            <a id="register-tab" data-toggle="tab" href="#">Sign-up</a>
+          </nav>
+          <!-- Login & Register tab Menu -->
+
+          <div class="tab-content" id="login-reg-tabcontent">
+            <div  id="register" role="tabpanel">
+              <form action="{% url 'signup' %}" method="post">{% csrf_token %}
+                
+                <div class="single-input-item">
+                  <input
+                    type="text"
+                    name="firstname"
+                    placeholder="First Name"
+                    required
+                  />
+                </div>
+                <div class="single-input-item">
+                  <input
+                    type="text"
+                    name="lastname"
+                    placeholder="Last Name"
+                    required
+                  />
+                </div>
+
+                <div class="single-input-item">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your Email"
+                    required
+                  />
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="single-input-item">
+                      <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter your Password"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="single-input-item">
+                      <input
+                        type="password"
+                        name="confirmation"
+                        placeholder="Repeat your Password"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="single-input-item">
+                  <div class="login-reg-form-meta">
+                    <div class="remember-meta">
+                      <div class="custom-control custom-checkbox">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input"
+                          id="subnewsletter"
+                        />
+                        <label class="custom-control-label" for="subnewsletter"
+                          >Subscribe Our Newsletter</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="single-input-item">
+                  <button class="btn-login">Sign-up</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- Login & Register Content End -->
+      </div>
+    </div>
+  </div>
+</div>
+<!--== Page Content Wrapper End ==-->
+
+{%endblock %}
