@@ -125,12 +125,13 @@
                         <div class="sidebar-body">
                             <div class="small-product-list">
                                 
-                                {%for product in products%}                                    
+                                {%for xproduct in xproducts %}      
+                                                                
                                     
                                         <div class="single-product-item">
                                             <figure class="product-thumb">
                                                 <a href="single-product.html"><img class="mr-2 img-fluid"
-                                                                                src="{{product.image.url}}"
+                                                                                src="{{xproduct.image.url}}"
                                                                                 alt="Products"/></a>
                                             </figure>
                                             <div class="product-details">
@@ -138,6 +139,7 @@
                                                 <span class="price">$50.00</span>
                                             </div>
                                         </div>
+                                    
                                      
                                 {%endfor%}
                             </div>

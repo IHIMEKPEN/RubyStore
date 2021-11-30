@@ -5,25 +5,6 @@
 
 
 
-<!--== Page Title Area Start ==-->
-<div id="page-title-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <div class="page-title-content">
-                    <h1>Shopping Cart</h1>
-                    <ul class="breadcrumb">
-                        <li><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="{% url 'shop' %}">Shop</a></li>
-                        <li><a href="#" class="active">Cart</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--== Page Title Area End ==-->
-
 <!--== Page Content Wrapper Start ==-->
 <div id="page-content-wrapper" class="p-9">
     <div class="container">
@@ -69,7 +50,7 @@
                 <!-- Cart Update Option -->
                 <div class="cart-update-option d-block d-lg-flex">                    
                     <div class="cart-update">
-                        <a href="#" class="btn-add-to-cart">Update Cart</a>
+                        <a href="{% url 'updatecart' %}" class="btn-add-to-cart">Update Cart</a>
                     </div>
                 </div>
             </div>

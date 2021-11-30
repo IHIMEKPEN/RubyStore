@@ -7,12 +7,17 @@ from django.http import JsonResponse
 from .models import *
 
 # Create your views here.
-#homepage
 
-#page for shop
+#page for shop/home
 def shop(request):
-    products=Product.objects.all()    
+    products=Product.objects.all()   
+    xproducts=Product.objects.all()[:3]   
+    
+    # xproduct = list_product.values()
+    # print(type(xproduct))
+    # print(type(list_product))
 
+    # print(type(products))
     if  request.user.is_authenticated :
         name=request.user.first_name
         length=0  
@@ -25,6 +30,7 @@ def shop(request):
             'products':products, 
             'cart_no':length,
             'items':cart_list,
+            "xproducts":xproducts,
 
          }
         return render(request,'ruby/shop.html',context)
@@ -48,6 +54,9 @@ def about(request):
     }
     return render(request,'ruby/about.html',context)
 
+
+
+
 #page for account
 def account(request):
     name=request.user.first_name
@@ -60,6 +69,8 @@ def account(request):
 
     }
     return render(request,'ruby/my-account.html',context)
+
+
 
 def loginview(request):
     if request.method =="POST":        
@@ -115,13 +126,7 @@ def logoutview(request):
 
 
 
-def blog(request):
-    name=request.user.first_name 
-    context={
-        "name": name,
 
-    }
-    return render(request,'ruby/single-blog.html',context)
 
 #handle functionaly of updating details
 def updatedetails(request,user_id):
@@ -157,7 +162,10 @@ def updatedetails(request,user_id):
            
         
             return render(request, "ruby/my-account.html")
-        
+
+
+
+
 #page for cart
 def cart(request):
     if request.user.is_authenticated:
@@ -199,6 +207,9 @@ def add_to_cart(request,product_id):
             }
         return redirect ('shop')
 
+
+
+
 @login_required(login_url = 'loginview')
 def remove_from_cart(request, product_id):
     pass
@@ -209,24 +220,28 @@ def remove_from_cart(request, product_id):
 #page for checkout
 def checkout(request):
     name=request.user.first_name
+    
     if request.user.is_authenticated:
-        customer=request.user.customer
-        order,created=Order.objects.get_or_create(customer=customer,complete=False)
-        items=order.orderitem_set.all()
+        cart_list=request.user.cart_list.all()
+        length=0 
+        if request.user.cart_list.all():
+            length=len(request.user.cart_list.all()) 
+        
     else:
         items=[]
         order={'get_cart_total':0,'get_cart_items':0}
 
     context={
         "name": name,
-        'items':items,
-        'order':order,
+        'cart_no':length,
+        # 'items':items,
+        # 'order':order,
     }
     return render(request,'ruby/checkout.html',context)
 
 
 
-def increase_quan(request):
+def updatecart(request):
     if request.method =="POST": 
 
         pass
