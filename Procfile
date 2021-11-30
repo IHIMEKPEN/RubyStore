@@ -1,1 +1,1 @@
-web:gunicorn RubyStore.wsgi --log-file -
+web: gunicorn RubyStore.wsgi --log-file - --log-level debug
