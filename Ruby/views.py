@@ -8,16 +8,6 @@ from .models import *
 
 # Create your views here.
 #homepage
-def home(request):
-    if  request.user.is_authenticated :
-        name=request.user.first_name
-        context={
-            "name": name,
-
-         }
-        return render(request,'ruby/index.html',context)
-    else :
-        return render(request,'ruby/index.html')
 
 #page for shop
 def shop(request):
@@ -39,9 +29,10 @@ def shop(request):
          }
         return render(request,'ruby/shop.html',context)
     else :
+        # name="guest"
         context={
-            'products':products
-        
+            'products':products,
+            "name": "guest",        
         }
         return render(request,'ruby/shop.html',context)
   
@@ -84,7 +75,7 @@ def loginview(request):
             request.session['message'] = "Invalid email and/or password."
             return render(request,'ruby/login-register.html')
     else:
-        return render(request, "ruby/login-register.html")
+        return render(request, "ruby/login-register.html",{"name":"guest"})
     
    
     
@@ -191,7 +182,7 @@ def cart(request):
 
    
     
-@login_required
+@login_required(login_url = 'loginview')
 def add_to_cart(request,product_id):
     user=User.objects.get(id=request.user.id)  
     if request.method =="POST": 
@@ -208,7 +199,7 @@ def add_to_cart(request,product_id):
             }
         return redirect ('shop')
 
-@login_required
+@login_required(login_url = 'loginview')
 def remove_from_cart(request, product_id):
     pass
     
