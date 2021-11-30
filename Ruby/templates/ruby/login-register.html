@@ -29,10 +29,8 @@
                         
                     </nav>
 
-                    <!-- Login & Register tab Menu -->
-                    <div class="tab-content" id="login-reg-tabcontent">
-                        <div class="tab-pane fade show active" id="login" role="tabpanel">
-                            <div class="login-reg-form-wrap">
+                   
+                    
                                 <form action="{% url 'loginview' %}" method="post">{% csrf_token %}
                                     <div class="single-input-item">
                                         <input type="email" name="email" placeholder="Enter your Email" required/>
@@ -60,11 +58,7 @@
                                         <button class="btn-login">Login</button>
                                     </div>
                                 </form>
-                            </div>
-                        </div>  
-                    </div>
-                </div>
-                <!-- Login & Register Content End -->
+                           
 
             </div>
         </div>
