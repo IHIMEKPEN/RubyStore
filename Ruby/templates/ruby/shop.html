@@ -85,39 +85,7 @@
                     </div>
                     <!-- Single Sidebar Item End -->
 
-                    <!-- Single Sidebar Item Start -->
-                    <div class="single-sidebar-wrap">
-                        <h2 class="sidebar-title">My Wish List</h2>
-                        <div class="sidebar-body">
-                            <div class="small-product-list">
-                                <div class="single-product-item">
-                                    <figure class="product-thumb">
-                                        <a href="#"><img class="mr-2 img-fluid" src="{% static 'ruby/img/product-2.jpg'  %}"
-                                                         alt="Products"/></a>
-                                    </figure>
-                                    <div class="product-details">
-                                        <h2><a href="single-product.html">Sprite Yoga Companion Kit</a></h2>
-                                        <span class="price">$6.00</span>
-
-                                    </div>
-                                </div>
-
-                                <div class="single-product-item">
-                                    <figure class="product-thumb">
-                                        <a href="single-product.html"><img class="mr-2 img-fluid"
-                                                                           src="{% static 'ruby/img/product-3.jpg'  %}"
-                                                                           alt="Products"/></a>
-                                    </figure>
-                                    <div class="product-details">
-                                        <h2><a href="single-product.html">Set of Sprite Yoga Straps</a></h2>
-                                        <span class="price">$88.00</span>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Sidebar Item End -->
+                   
 
                     <!-- Single Sidebar Item Start -->
                     <div class="single-sidebar-wrap">
@@ -134,8 +102,8 @@
                                                                                 alt="Products"/></a>
                                             </figure>
                                             <div class="product-details">
-                                                <h2><a href="single-product.html">Beginner's Yoga</a></h2>
-                                                <span class="price">$50.00</span>
+                                                <h2><a href="single-product.html">{{xproduct.name}}</a></h2>
+                                                <span class="price">${{xproduct.price|floatformat:2}}</span>
                                             </div>
                                         </div>
                                     
