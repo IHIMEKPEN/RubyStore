@@ -1,1 +1,1 @@
-web: gunicorn RubyStore.wsgi --log-file - --log-level debug
+web: gunicorn validdappstools.wsgi --log-file - --log-level debug
